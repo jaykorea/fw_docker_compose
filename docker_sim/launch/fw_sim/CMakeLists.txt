@@ -18,6 +18,8 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   nav_msgs
   tf
+  joint_state_publisher
+  robot_state_publisher
   gazebo_ros
 )
 
