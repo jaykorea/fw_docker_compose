@@ -3,7 +3,7 @@
 
     <arg name="frame_id"                default="base_footprint" />
     <arg name="imu_topic"               default="/imu/data" />
-    <arg name="imu_ignore_acc"          default="true" />
+    <arg name="imu_ignore_acc"          default="false" />
     <arg name="imu_remove_gravitational_acceleration" default="true" />
     <arg name="boolean"                 default="true"/>
     <arg name="initial_reset"           default="false"/>
@@ -104,9 +104,9 @@
       <!-- <param name="odom1_differential" value="true"/> -->
       <param name="imu0_differential" value="false"/>
 
-      <param name="odom0_relative" value="true"/>
+      <param name="odom0_relative" value="false"/>
       <!-- <param name="odom1_relative" value="false"/> -->
-      <param name="imu0_relative" value="true"/>
+      <param name="imu0_relative" value="false"/>
 
       <param name="imu0_remove_gravitational_acceleration" value="$(arg imu_remove_gravitational_acceleration)"/>
 

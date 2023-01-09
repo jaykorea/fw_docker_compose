@@ -7,7 +7,8 @@
     <arg name="irdepth_"                        default="false"/>
     <arg name="rgbd_"                           default="false"/>
     <arg name="rgbdicp_"                        default="false"/>
-    <arg name="multi_rgbd_"                     default="false"/>
+    <arg name="multi_rgbd_"                     default="true"/>
+    <arg name="multi_rgbd_vis"                  default="false"/>
     <arg name="rtabmap_args"                    default=""/>
     <arg name="localization"                    default="true"/>
     <arg name="use_sim_time_"                   default="false"/>
@@ -218,7 +219,7 @@
     </node>
   </group>
   
-   <node if="$(arg multi_rgbd_)" pkg="rtabmap_ros" type="rgbd_odometry" name="rgbd_odometry" output="screen">
+   <node if="$(arg multi_rgbd_vis)" pkg="rtabmap_ros" type="rgbd_odometry" name="rgbd_odometry" output="screen">
       <remap from="rgbd_image0"       to="/camera_r/rgbd_image"/>
       <remap from="rgbd_image1"       to="/camera_l/rgbd_image"/>
       <remap from="odom"              to="/vo"/>
@@ -269,7 +270,7 @@
         <arg name="rgb_topic"                           value="/d455/color/image_raw"/>
         <arg name="camera_info_topic"                   value="/d455/color/camera_info"/>
         <arg name="rgbd_image"                          value="/freeway/rgbd_image"/>
-        <!-- <arg name="depth_topic"                         value="/d455/depth/image_rect_raw"/>
+        <!-- <arg name="depth_topic"                    value="/d455/depth/image_rect_raw"/>
         <arg name="rgb_topic"                           value="/d455/infra1/image_rect_raw"/>
         <arg name="camera_info_topic"                   value="/d455/infra1/camera_info"/> -->
 
@@ -286,9 +287,9 @@
         <arg name="scan_topic"                          value="/scan_rp_filtered"/>
         <arg name="subscribe_scan"                      value="true"/>
         <arg name="subscribe_rgb"                       value="false"/>
-        <arg name="subscribe_rgbd"                      value="false"/>
+        <arg name="subscribe_rgbd"                      value="true"/>
         <arg name="stereo"                              value="false"/>
-        <arg name="depth"                               value="true"/>
+        <arg name="depth"                               value="false"/>
 
         
         <!-- Advances arguments -->     
