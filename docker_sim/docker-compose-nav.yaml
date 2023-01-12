@@ -181,7 +181,7 @@ services:
       - "~/docker_compose/docker_sim/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
       - "~/docker_compose/docker_sim/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
       - "~/docker_compose/docker_sim/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
-    command: ["/bin/zsh", "-c", "source /opt/ros/melodic/setup.zsh; source ~/.zshrc; roslaunch --wait fw_rev_04_rtabmap fw_navigation_stereo_test2_jay_2dlidar.launch grid_size:=50 grid_cellsize:=0.05 rviz:=true rtabmapviz:=false database_path:=/robot/map/globalf4_05.db"]
+    command: ["/bin/zsh", "-c", "source /opt/ros/melodic/setup.zsh; source ~/.zshrc; roslaunch --wait fw_rev_04_rtabmap fw_navigation_stereo_test2_jay_2dlidar.launch grid_size:=50 grid_cellsize:=0.05 rviz:=true rtabmapviz:=false database_path:=/robot/map/cafe_sim.db"]
 
   fw_navigation_sim:
     # build: ,,

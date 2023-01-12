@@ -3,7 +3,7 @@
 
     <arg name="frame_id"                default="base_footprint" />
     <arg name="imu_topic"               default="/imu/data" />
-    <arg name="imu_ignore_acc"          default="true" />
+    <arg name="imu_ignore_acc"          default="false" />
     <arg name="imu_remove_gravitational_acceleration" default="true" />
     <arg name="boolean"                 default="true"/>
 
