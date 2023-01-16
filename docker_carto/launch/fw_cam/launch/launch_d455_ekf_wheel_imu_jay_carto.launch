@@ -106,7 +106,7 @@
 
       <param name="odom0_relative" value="false"/>
       <!-- <param name="odom1_relative" value="false"/> -->
-      <param name="imu0_relative" value="false"/>
+      <param name="imu0_relative" value="true"/>
 
       <param name="imu0_remove_gravitational_acceleration" value="$(arg imu_remove_gravitational_acceleration)"/>
 
