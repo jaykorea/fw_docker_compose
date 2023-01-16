@@ -2,7 +2,7 @@ planners:
   - name: 'GlobalPlanner'
     type: 'global_planner/GlobalPlanner'
 
-planner_patience: 10.0
+#planner_patience: 10.0
 GlobalPlanner:
   allow_unknown: false
   default_tolerance: 2.0

@@ -125,7 +125,7 @@ services:
       - "~/docker_compose/docker_carto/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
       - "~/docker_compose/docker_carto/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
       - "~/docker_compose/docker_carto/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
-    command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_cam launch_d455_ekf_wheel_imu_jay_carto.launch initial_reset:=false;"]
+    command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_cam launch_d455_ekf_wheel_imu_jay.launch initial_reset:=false;"]
 
   fw_carto:
     # build: ,,
@@ -166,7 +166,7 @@ services:
       - "~/docker_compose/docker_carto/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
       - "~/docker_compose/docker_carto/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
       - "~/docker_compose/docker_carto/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
-    command: ["/bin/zsh", "-c", "source /opt/ros/melodic/setup.zsh; source ~/.zshrc; roslaunch --wait fw_rev_04_navigation fw_navigation_teb.launch map_file:=/robot/map/map.yaml;"]
+    command: ["/bin/zsh", "-c", "source /opt/ros/melodic/setup.zsh; source ~/.zshrc; roslaunch --wait fw_rev_04_navigation fw_navigation_gmap.launch map_file:=/robot/map/gmap.yaml;"]
 
   fw_navigation_carto:
     # build: ,,
