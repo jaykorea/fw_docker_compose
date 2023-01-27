@@ -28,11 +28,11 @@ TebLocalPlannerROS:
  
   # Robot
           
-  max_vel_x: 0.85 # default 0.25
+  max_vel_x: 0.55 # default 0.25
   max_vel_y: 0 # default 0.25
   max_vel_x_backwards: 0.25
   max_vel_theta: 0.8 # default 0.45
-  acc_lim_x: 0.15 # default 0.5
+  acc_lim_x: 0.25 # default 0.5
   acc_lim_y: 0
   acc_lim_theta: 0.4 # default : 0.4
   min_turning_radius: 0
@@ -56,7 +56,7 @@ TebLocalPlannerROS:
   free_goal_vel: False
   complete_global_plan: true
   divergence_detection_enable: false
-  divergence_detection_max_chi_squared: 85
+  divergence_detection_max_chi_squared: 70
  
   exact_arc_length: false
   control_look_ahead_poses: 1
@@ -68,7 +68,7 @@ TebLocalPlannerROS:
   include_dynamic_obstacles: false
   legacy_obstacle_association: false
   costmap_obstacles_behind_robot_dist: 1.0 #default : 1.0
-  obstacle_poses_affected: 45
+  obstacle_poses_affected: 30
 
   costmap_converter_plugin: "costmap_converter::CostmapToLinesDBSRANSAC"
   costmap_converter_spin_thread: True
