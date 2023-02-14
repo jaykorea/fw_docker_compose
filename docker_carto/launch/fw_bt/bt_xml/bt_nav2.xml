@@ -2,7 +2,7 @@
     <BehaviorTree ID="MainTree">
         <RetryUntilSuccessful num_attempts="-1">
             <Sequence name="Main loop">
-                <SetBlackboard output_key="Home" value="0.259;-0.426;0.0;1.0" />
+                <SetBlackboard output_key="Home" value="4.582;10.839;-0.104;0.995" />
                 <Fallback>
                     <Repeat num_cycles="-1">
                         <Sequence>

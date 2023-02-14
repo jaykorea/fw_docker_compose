@@ -3,8 +3,9 @@
   <arg name="cmd_vel_topic" default="/cmd_vel" />
   <arg name="odom_topic" default="/odometry/filtered" />
   <arg name="dt_flag" default="true"/>
-  <arg name="joy_flag" default="false"/>
+  <arg name="joy_flag" default="true"/>
   <arg name="spk_flag" default="false"/>
+  <arg name="serial_flag" default="true"/>
   <arg name="smooth_flag" default="false" />
   
   <!-- move_base -->
@@ -42,6 +43,11 @@
 
   <node if="$(arg dt_flag)" pkg="distancetime_calculator" type="distancetime_calculator_flex_node" name="distancetime_calculator_flex_node"  output="screen" respawn="false"/>
   <node if="$(arg joy_flag)" pkg="freeway_joy" type="freeway_joy_node" name="freeway_joy_node" output="screen" respawn="false"/>
+  <node if="$(arg serial_flag)" pkg="rosserial_python" type="serial_node.py" name="serial_node" output="screen">
+    <param name="port"	value="/dev/STMJOY" />
+    <param name="baud"	value="57600" />
+  </node>
+  
   <node if="$(arg spk_flag)" pkg="freeway_spk" type="fw_spk_flex.py" name="fw_spk_node" output="screen" respawn="false"/>
   <include if="$(arg smooth_flag)" file="$(find yocs_velocity_smoother)/launch/standalone.launch"/>
 </launch>

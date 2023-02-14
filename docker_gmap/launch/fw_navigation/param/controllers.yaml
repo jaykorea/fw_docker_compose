@@ -61,7 +61,7 @@ TebLocalPlannerROS:
   exact_arc_length: false
   control_look_ahead_poses: 2
      
-  min_obstacle_dist: 0.265 # This value must also include our robot radius, since footprint_model is set to "point" or "line".
+  min_obstacle_dist: 0.05 # This value must also include our robot radius, since footprint_model is set to "point" or "line".
   inflation_dist: 0.5
   dynamic_obstacle_inflation_dist: 0.5
   include_costmap_obstacles: True
