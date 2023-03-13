@@ -200,15 +200,15 @@ DWBLocalPlanner:
   max_speed_xy: 0.65
   min_speed_xy: 0.1
 
-  max_vel_theta: 0.6
-  min_speed_theta: 0.3
+  max_vel_theta: 0.7
+  min_speed_theta: 0.4
 
-  acc_lim_x: 0.08
+  acc_lim_x: 0.085
   acc_lim_y: 0.0
-  acc_lim_theta: 0.4
-  decel_lim_x: -0.1
+  acc_lim_theta: 0.5
+  decel_lim_x: -0.105
   decel_lim_y: 0.0
-  decel_lim_theta: -0.4
+  decel_lim_theta: -0.5
 
   xy_goal_tolerance: 0.25
   yaw_goal_tolerance: 0.25
@@ -229,7 +229,7 @@ DWBLocalPlanner:
   prune_plan: true
   prune_distance: 1.0
 # BaseObstacle, ObstacleFootprint
-  critics: [RotateToGoal, Oscillation, ObstacleFootprint, PathAlign, PathDist, GoalAlign, GoalDist]
+  critics: [RotateToGoal, Oscillation, BaseObstacle, PathAlign, PathDist, GoalAlign, GoalDist]
   RotateToGoal:
     scale: 100.0
     slowing_factor: 5.0
@@ -239,14 +239,14 @@ DWBLocalPlanner:
     oscillation_reset_dist: 0.1
     oscillation_reset_angle: 0.2
     oscillation_reset_time: 1.5
-  # BaseObstacle:
-  #   scale: 0.01
-  ObstacleFootprint: 
-    footprint: [[-0.345, -0.245], [-0.345, 0.245], [0.265, 0.245], [0.265, -0.245]]
+  BaseObstacle:
     scale: 0.01
-    max_scaling_factor: 0.2 
-    scaling_speed: 0.25
-    sum_scores: false
+  # ObstacleFootprint: 
+  #   footprint: [[-0.345, -0.245], [-0.345, 0.245], [0.265, 0.245], [0.265, -0.245]]
+  #   scale: 12.2
+  #   max_scaling_factor: 0.2
+  #   scaling_speed: 0.25
+  #   sum_scores: false
   PathAlign:
     scale: 32.0
     forward_point_distance: 0.1
