@@ -1,14 +1,17 @@
 controllers:
   # - name: 'DWAPlannerROS'
   #   type: 'dwa_local_planner/DWAPlannerROS'
-  # - name: 'LocalPlannerAdapter'
-  #   type: 'nav_core_adapter::LocalPlannerAdapter'
+  - name: 'LocalPlannerAdapter'
+    type: 'nav_core_adapter::LocalPlannerAdapter'
   # - name: 'MpcLocalPlannerROS'
   #   type: 'mpc_local_planner/MpcLocalPlannerROS'    
   # - name: 'EBandPlannerROS'
   #   type: 'eband_local_planner/EBandPlannerROS'
-   - name: 'TebLocalPlannerROS'
-     type: 'teb_local_planner/TebLocalPlannerROS' 
+  # - name: 'EBandPlannerROS'
+  #   type: 'eband_local_planner/EBandPlannerROS'
+  #  - name: 'NeoLocalPlanner'
+  #    type: 'neo_local_planner/NeoLocalPlanner' 
+  #  - name: 'TebLocalPlannerROS'
 
 TebLocalPlannerROS:
   odom_topic: /odometry/filtered
@@ -188,69 +191,70 @@ DWBLocalPlanner:
 
   global_frame_id: "odom_combined" #(string, default: "odom")
 
-  max_vel_x: 0.8
+  max_vel_x: 0.6
   min_vel_x: 0.0
 
   max_vel_y: 0.0
   min_vel_y: 0.0
 
-  max_speed_xy: 0.8
-  min_speed_xy: 0.0
+  max_speed_xy: 0.65
+  min_speed_xy: 0.1
 
   max_vel_theta: 0.6
-  min_speed_theta: 0.1
+  min_speed_theta: 0.3
 
-  acc_lim_x: 0.15
+  acc_lim_x: 0.08
   acc_lim_y: 0.0
-  acc_lim_theta: 0.25
-  decel_lim_x: -0.15
+  acc_lim_theta: 0.4
+  decel_lim_x: -0.1
   decel_lim_y: 0.0
-  decel_lim_theta: -0.25
+  decel_lim_theta: -0.4
 
-  xy_goal_tolerance: 0.05
-  yaw_goal_tolerance: 0.1
+  xy_goal_tolerance: 0.25
+  yaw_goal_tolerance: 0.25
 
   split_path: true
 
-  trajectory_generator_name: dwb_plugins::StandardTrajectoryGenerator #dwb_plugins::LimitedAccelGenerator , sim_time : 1.7
-  sim_time: 1.3
+  trajectory_generator_name: dwb_plugins::StandardTrajectoryGenerator #dwb_plugins::LimitedAccelGenerator , sim_time : 1.7 StandardTrajectoryGenerator
+  sim_time: 1.4
   vx_samples: 25
   vy_samples: 1      
-  vtheta_samples: 15
+  vtheta_samples: 20
   discretize_by_time: false
-  angular_granularity: 0.15
+  angular_granularity: 0.025
   linear_granularity: 0.05
 
   goal_checker_name: dwb_plugins::SimpleGoalChecker
     
   prune_plan: true
-  prune_distance: 1.0   
-#, ObstacleFootprint
-  critics: [RotateToGoal, Oscillation, BaseObstacle, PathAlign, PathDist, GoalAlign, GoalDist]
+  prune_distance: 1.0
+# BaseObstacle, ObstacleFootprint
+  critics: [RotateToGoal, Oscillation, ObstacleFootprint, PathAlign, PathDist, GoalAlign, GoalDist]
   RotateToGoal:
-    scale: 32
-    slowing_factor: 24.0
+    scale: 100.0
+    slowing_factor: 5.0
     lookahead_time: -1.0
   Oscillation:
     x_only_threshold: 0.05
-    oscillation_reset_dist: 0.05
+    oscillation_reset_dist: 0.1
     oscillation_reset_angle: 0.2
     oscillation_reset_time: 1.5
-  BaseObstacle:
-    scale: 0.02
-  # ObstacleFootprint: 
-  #   footprint: [[-0.345, -0.245], [-0.345, 0.245], [0.265, 0.245], [0.265, -0.245]]
+  # BaseObstacle:
   #   scale: 0.01
-  #   max_scaling_factor: 0.2 
-  #   scaling_speed: 0.25
-  #   sum_scores: false
+  ObstacleFootprint: 
+    footprint: [[-0.345, -0.245], [-0.345, 0.245], [0.265, 0.245], [0.265, -0.245]]
+    scale: 0.01
+    max_scaling_factor: 0.2 
+    scaling_speed: 0.25
+    sum_scores: false
   PathAlign:
-    scale: 16.0
-    forward_point_distance: 0.325
+    scale: 32.0
+    forward_point_distance: 0.1
   PathDist:
     scale: 32.0
-  GoalAligh:
-    scale: 12.0
+  GoalAlign:
+    forward_point_distance: 0.1
+    scale: 24.0
   GoalDist:
     scale: 24.0
 

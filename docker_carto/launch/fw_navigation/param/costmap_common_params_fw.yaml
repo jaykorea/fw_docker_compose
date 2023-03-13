@@ -152,13 +152,13 @@ obstacle_3d_layer2:
   obstacle_cloud_r: {sensor_fame: d455_R_color_optical_frame, data_type: PointCloud2, topic: obstacle_cloud_r, obstacle_range: 4.0, raytrace_range: 6.0, marking: True, clearing: True, min_obstacle_height: 0.01, max_obstacle_height: 1.5}
   obstacle_cloud_l: {sensor_fame: d455_L_color_optical_frame, data_type: PointCloud2, topic: obstacle_cloud_l, obstacle_range: 4.0, raytrace_range: 6.0, marking: True, clearing: True, min_obstacle_height: 0.01, max_obstacle_height: 1.5}
 
-inflation_layer:
+global_inflation_layer:
   enabled: true
-  inflation_radius: 1.0
-  cost_scaling_factor: 5.58
+  inflation_radius: 1.25
+  cost_scaling_factor: 2.58
 
-#local_inflation_layer:
-#  enabled: true
-#  inflation_radius: 0.7
-#  cost_scaling_factor: 7.58
+local_inflation_layer:
+ enabled: true
+ inflation_radius: 1.25
+ cost_scaling_factor: 3.58
 
