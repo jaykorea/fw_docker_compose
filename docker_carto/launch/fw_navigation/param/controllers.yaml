@@ -16,7 +16,7 @@ controllers:
 TebLocalPlannerROS:
   odom_topic: /odometry/filtered
   map_frame: map # map
-     
+  stop_on_obstacle: true
   # Trajectory
    
   teb_autosize: True
@@ -59,10 +59,10 @@ TebLocalPlannerROS:
   free_goal_vel: False
   complete_global_plan: true
   divergence_detection_enable: true
-  divergence_detection_max_chi_squared: 70
+  divergence_detection_max_chi_squared: 75
  
   exact_arc_length: false
-  control_look_ahead_poses: 2
+  control_look_ahead_poses: 1
      
   min_obstacle_dist: 0.05 # This value must also include our robot radius, since footprint_model is set to "point" or "line".
   inflation_dist: 0.5
@@ -149,7 +149,7 @@ TebLocalPlannerROS:
   weight_optimaltime: 1
   weight_obstacle: 50
   weight_velocity_obstacle_ratio: 0.0
-  weight_viapoint: 100.0          #10
+  weight_viapoint: 50.0          #10
   weight_dynamic_obstacle: 0.1 # not in use yet
   weight_dynamic_obstacle_inflation: 0.2
   weight_adapt_factor: 2.0
